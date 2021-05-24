@@ -1,2 +1,6 @@
 const knex = require("../db/connection");
-module.exports = {};
+
+function list(req, res, next) {
+  return knex("cards").select("*");
+}
+module.exports = { list };
