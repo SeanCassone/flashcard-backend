@@ -1,6 +1,11 @@
 const knex = require("../db/connection");
 
-function list(req, res, next) {
+function list() {
   return knex("decks").select("*");
 }
-module.exports = { list };
+
+function create(deck) {
+  return knex("decks").insert(deck).returning("*");
+}
+
+module.exports = { list, create };
