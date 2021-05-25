@@ -9,7 +9,7 @@ app.use(express.json());
 app.use("/decks", decksRouter);
 app.use("/cards", cardsRouter);
 
-// app.use(notFound);
-// app.use(errorHandler);
+app.use(notFound);
+app.use(errorHandler);
 
 module.exports = app;

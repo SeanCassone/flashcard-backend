@@ -8,4 +8,7 @@ function create(deck) {
   return knex("decks").insert(deck).returning("*");
 }
 
-module.exports = { list, create };
+function read({ deckId }) {
+  return knex("decks").select("*").where({ id: deckId }).first();
+}
+module.exports = { list, create, read };
